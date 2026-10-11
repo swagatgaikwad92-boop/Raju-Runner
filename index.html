@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#ff9f1c">
+<meta name="description" content="Mumbai Mayhem Runner - an offline endless runner through a chaotic, colourful Mumbai street.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Mumbai Mayhem Runner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="game" aria-label="Game area: swipe to move, jump and slide"></canvas>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-top">
+      <div class="hud-box"><span class="lbl">SCORE</span><b id="hudScore">0</b></div>
+      <div class="hud-box"><span class="lbl">DIST</span><b id="hudDist">0m</b></div>
+      <div class="hud-box coin"><span class="coin-ico"></span><b id="hudCoins">0</b></div>
+      <button id="btnPause" class="icon-btn" aria-label="Pause">❚❚</button>
+    </div>
+    <div id="powerBars"></div>
+    <div id="speech" class="speech hidden"></div>
+    <div id="ctrlArrows">
+      <button id="btnLeft" aria-label="Move left">◀</button>
+      <button id="btnJump" aria-label="Jump">▲</button>
+      <button id="btnSlide" aria-label="Slide">▼</button>
+      <button id="btnRight" aria-label="Move right">▶</button>
+    </div>
+  </div>
+
+  <!-- MAIN MENU -->
+  <div id="menu" class="screen">
+    <div class="menu-top">
+      <div class="title-wrap">
+        <div class="title-small">MUMBAI</div>
+        <div class="title-big">MAYHEM RUNNER</div>
+      </div>
+      <div class="menu-coins"><span class="coin-ico"></span><b id="menuCoins">0</b></div>
+      <div id="menuBest" class="menu-best"></div>
+    </div>
+    <div class="menu-bottom">
+      <button id="btnPlay" class="big-btn">PLAY</button>
+      <div class="menu-row">
+        <button class="sm-btn" data-open="chars">Characters</button>
+        <button class="sm-btn" data-open="missions">Missions</button>
+        <button class="sm-btn" data-open="shop">Shop</button>
+      </div>
+      <div class="menu-row">
+        <button class="sm-btn" data-open="ach">Achievements</button>
+        <button class="sm-btn" data-open="settings">Settings</button>
+      </div>
+      <div class="hint">Swipe ◀ ▶ to change lane · ▲ jump · ▼ slide &nbsp;|&nbsp; Keys: arrows / WASD, P = pause</div>
+    </div>
+  </div>
+
+  <!-- PANELS -->
+  <div id="panel" class="screen hidden">
+    <div class="panel-card">
+      <div class="panel-head"><h2 id="panelTitle"></h2><button id="panelClose" class="icon-btn" aria-label="Close">✕</button></div>
+      <div id="panelBody"></div>
+    </div>
+  </div>
+
+  <!-- PAUSE -->
+  <div id="pause" class="screen hidden">
+    <div class="panel-card small">
+      <h2>Paused</h2>
+      <button id="btnResume" class="big-btn">RESUME</button>
+      <button id="btnPauseRestart" class="sm-btn wide">Restart</button>
+      <button id="btnPauseMenu" class="sm-btn wide">Main Menu</button>
+    </div>
+  </div>
+
+  <!-- GAME OVER -->
+  <div id="over" class="screen hidden">
+    <div class="panel-card">
+      <h2 id="overQuip">Arre baap re!</h2>
+      <div class="over-score"><span id="overScore">0</span></div>
+      <div id="overNew" class="newbest hidden">NEW BEST!</div>
+      <div class="over-stats">
+        <div><span>Distance</span><b id="overDist">0m</b></div>
+        <div><span>Coins</span><b id="overCoins">0</b></div>
+        <div><span>Best</span><b id="overBest">0</b></div>
+      </div>
+      <button id="btnRestart" class="big-btn">RUN AGAIN</button>
+      <button id="btnOverMenu" class="sm-btn wide">Main Menu</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <div id="rotate" class="hidden">Rotate your phone upright for the best experience</div>
+</div>
+<script src="art.js"></script>
+<script src="audio.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
